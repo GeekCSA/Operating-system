@@ -1,10 +1,13 @@
-A fork is a command that splits a process into two.
+### Background
+fork is a command that splits a process into two.
 
 In this way, we can create another process that will work in parallel to the current process, but will be able to operate on another program.
 
 We can change the program on which the process runs by exec commands.
 
 For more information: [link](http://www.elad-horev.org/Teaching/OS1/s1.pdf)
+
+### Description of the program
 
 This code using the fork() system call that generates the following tree:
 
