@@ -2,15 +2,15 @@
  ============================================================================
  Name        : TreeByFork.c
  Author      : Moshe
- Version     :
+ Version     : 0.1
  Copyright   : Your copyright notice
- Description : Build tree of processes by  in C, Ansi-style
+ Description : Build a tree of processes by fork command in C
  ============================================================================
  */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include<sys/wait.h>
+#include <sys/wait.h>
 
 int main(void) {
 
@@ -29,15 +29,15 @@ int main(void) {
 				pid_t a = fork();//Create #14
 				if(a == 0)//Is #14
 				{
-					int child = 1;
+					int child = 1;//For his father is one child.
 					return child;
 				}
-				else
+				else//Is #8
 				{
 					pid_t a = fork();//Create #15
 					if(a == 0)//Is #15
 					{
-						int child = 1;//It for his father is one child.
+						int child = 1;//For his father is one child.
 						return child;
 					}
 
@@ -47,13 +47,12 @@ int main(void) {
 					child /= 256;
 					wait(&temp);//Wait for #15
 					child += temp/256;
-
-					printf("The number of children (include me - 8 - ) is %d\n",child);
+					printf("The number of children (include me - 8 - ) is %d. The id of this node is %d\n\n",child,getpid());
 					child++;//Add one for correct node which child for his father
 					return child;
 				}
 			}
-			else
+			else//Is #4
 			{
 				pid_t a = fork();//Create #9
 				if(a == 0)//Is #9
@@ -67,15 +66,15 @@ int main(void) {
 							pid_t a = fork();//Create #26
 							if(a == 0)//Is #26
 							{
-								int child = 1;
+								int child = 1;//For his father is one child.
 								return child;
 							}
-							else
+							else//Is #22
 							{
 								pid_t a = fork();//Create #27
 								if(a == 0)//Is #27
 								{
-									int child = 1;
+									int child = 1;//For his father is one child.
 									return child;
 								}
 
@@ -85,18 +84,17 @@ int main(void) {
 								child /= 256;
 								wait(&temp);//Wait for #27
 								child += temp/256;
-
-								printf("The number of children (include me - 22 - ) is %d\n",child);
+								printf("The number of children (include me - 22 - ) is %d. The id of this node is %d\n\n",child,getpid());
 								child++;//Add one for correct node which child for his father
 								return child;
 							}
 						}
-						else
+						else//Is #16
 						{
 							pid_t a = fork();//Create #23
 							if(a == 0)//Is #23
 							{
-								int child = 1;
+								int child = 1;//For his father is one child.
 								return child;
 							}
 
@@ -106,18 +104,17 @@ int main(void) {
 							child /= 256;
 							wait(&temp);//Wait for #23
 							child += temp/256;
-
-							printf("The number of children (include me - 16 - ) is %d\n",child);
+							printf("The number of children (include me - 16 - ) is %d. The id of this node is %d\n\n",child,getpid());
 							child++;//Add one for correct node which child for his father
 							return child;
 						}
 					}
-					else
+					else//Is #9
 					{
 						pid_t a = fork();//Create #17
 						if(a == 0)//Is #17
 						{
-							int child = 1;
+							int child = 1;//For his father is one child.
 							return child;
 						}
 
@@ -127,8 +124,7 @@ int main(void) {
 						child /= 256;
 						wait(&temp);//Wait for #17
 						child += temp/256;
-
-						printf("The number of children (include me - 9 - ) is %d\n",child);
+						printf("The number of children (include me - 9 - ) is %d. The id of this node is %d\n\n",child,getpid());
 						child++;//Add one for correct node which child for his father
 						return child;
 					}
@@ -140,8 +136,7 @@ int main(void) {
 				child /= 256;
 				wait(&temp);//Wait for #9
 				child += temp/256;
-
-				printf("The number of children (include me - 4 - ) is %d\n",child);
+				printf("The number of children (include me - 4 - ) is %d. The id of this node is %d\n\n",child,getpid());
 				child++;//Add one for correct node which child for his father
 				return child;
 			}
@@ -154,10 +149,10 @@ int main(void) {
 				pid_t a = fork();//Create #10
 				if(a == 0)//Is #10
 				{
-					int child = 1;
+					int child = 1;//For his father is one child.
 					return child;
 				}
-				else//Is #5 - father of #10
+				else//Is #5
 				{
 					pid_t a = fork();//Create #11
 					if(a == 0)//Is #11
@@ -165,10 +160,10 @@ int main(void) {
 						pid_t a = fork();//Create #19
 						if(a == 0)//Is #19
 						{
-							int child = 1;
+							int child = 1;//For his father is one child.
 							return child;
 						}
-						else
+						else//Is #11
 						{
 							pid_t a = fork();//Create #18
 							if(a == 0)//Is #18
@@ -176,15 +171,15 @@ int main(void) {
 								pid_t a = fork();//Create #24
 								if(a == 0)//Is #24
 								{
-									int child = 1;
+									int child = 1;//For his father is one child.
 									return child;
 								}
-								else
+								else//Is #18
 								{
 									pid_t a = fork();//Create #25
 									if(a == 0)//Is #25
 									{
-										int child = 1;
+										int child = 1;//For his father is one child.
 										return child;
 									}
 
@@ -194,8 +189,7 @@ int main(void) {
 									child /= 256;
 									wait(&temp);//Wait for #25
 									child += temp/256;
-
-									printf("The number of children (include me - 18 - ) is %d\n",child);
+									printf("The number of children (include me - 18 - ) is %d. The id of this node is %d\n\n",child,getpid());
 									child++;//Add one for correct node which child for his father
 									return child;
 								}
@@ -207,14 +201,12 @@ int main(void) {
 							child /= 256;
 							wait(&temp);//Wait for #19
 							child += temp/256;
-
-							printf("The number of children (include me - 11 - ) is %d\n",child);
+							printf("The number of children (include me - 11 - ) is %d. The id of this node is %d\n\n",child,getpid());
 							child++;//Add one for correct node which child for his father
 							return child;
-
 						}
 					}
-					else
+					else//Is #5
 					{
 						int child;
 						int temp;
@@ -222,14 +214,13 @@ int main(void) {
 						child /= 256;
 						wait(&temp);//Wait for #11
 						child += temp/256;
-
-						printf("The number of children (include me - 5 - ) is %d\n",child);
+						printf("The number of children (include me - 5 - ) is %d. The id of this node is %d\n\n",child,getpid());
 						child++;//Add one for correct node which child for his father
 						return child;
 					}
 				}
 			}
-			else//Is 2
+			else//Is #2
 			{
 				int child;
 				int temp;
@@ -237,14 +228,13 @@ int main(void) {
 				child /= 256;
 				wait(&temp);//Wait for #4
 				child += temp/256;
-
-				printf("The number of children (include me - 2 - ) is %d\n",child);
+				printf("The number of children (include me - 2 - ) is %d. The id of this node is %d\n\n",child,getpid());
 				child++;//Add one for correct node which child for his father
 				return child;
 			}
 		}
 	}
-	else
+	else//Is #1
 	{
 		pid_t a = fork();//Create #3
 		if(a == 0)
@@ -252,10 +242,10 @@ int main(void) {
 			pid_t a = fork();//Create #6
 			if(a == 0)//Is #6
 			{
-				int child = 1;
+				int child = 1;//For his father is one child.
 				return child;
 			}
-			else
+			else//Is #3
 			{
 				pid_t a = fork();//Create #7
 				if(a == 0)//Is #7
@@ -263,10 +253,10 @@ int main(void) {
 					pid_t a = fork();//#13
 					if(a == 0)//Is #13
 					{
-						int child = 1;
+						int child = 1;//For his father is one child.
 						return child;
 					}
-					else
+					else//Is #7
 					{
 						pid_t a = fork();//Create #12
 						if(a == 0)//Is #12
@@ -274,15 +264,15 @@ int main(void) {
 							pid_t a = fork();//Create #20
 							if(a == 0)//Is #20
 							{
-								int child = 1;
+								int child = 1;//For his father is one child.
 								return child;
 							}
-							else
+							else//Is #12
 							{
 								pid_t a = fork();//Create #21
 								if(a == 0)//Is #21
 								{
-									int child = 1;
+									int child = 1;//For his father is one child.
 									return child;
 								}
 								int child;
@@ -291,8 +281,7 @@ int main(void) {
 								child /= 256;
 								wait(&temp);//Wait for #21
 								child += temp/256;
-
-								printf("The number of children (include me - 12 - ) is %d\n",child);
+								printf("The number of children (include me - 12 - ) is %d. The id of this node is %d\n\n",child,getpid());
 								child++;//Add one for correct node which child for his father
 								return child;
 							}
@@ -300,12 +289,11 @@ int main(void) {
 
 						int child;
 						int temp;
-						wait(&child);//Wait for #6
+						wait(&child);//Wait for #12
 						child /= 256;
-						wait(&temp);//Wait for #7
+						wait(&temp);//Wait for #13
 						child += temp/256;
-
-						printf("The number of children (include me - 7 - ) is %d\n",child);
+						printf("The number of children (include me - 7 - ) is %d. The id of this node is %d\n\n",child,getpid());
 						child++;//Add one for correct node which child for his father
 						return child;
 					}
@@ -316,23 +304,17 @@ int main(void) {
 				child /= 256;
 				wait(&temp);//Wait for #7
 				child += temp/256;
-
-				printf("The number of children (include me - 3 - ) is %d\n",child);
+				printf("The number of children (include me - 3 - ) is %d. The id of this node is %d\n\n",child,getpid());
 				child++;//Add one for correct node which child for his father
 				return child;
 			}
 		}
 
-
 		wait(&x);
 		sum = x/256;
 		wait(&x);
 		sum += x/256;
-		printf("The number of all children , The x number is %d\n",sum);
-		puts("Father");
+		printf("The number of all children in the tree is: %d.\n The id of the root is: %d\n",sum,getpid());
 	}
-
-
-	puts("!!!Hello World!!!");
 	return EXIT_SUCCESS;
 }
