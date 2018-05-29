@@ -1,4 +1,3 @@
-package myos;
 
 public class MyRunnableTask implements Runnable {
 	Args args;
@@ -8,10 +7,10 @@ public class MyRunnableTask implements Runnable {
 		this.args=args;
 		this.size=args.getArr().length;
 	}
-	@Override
+	
 	public void run() {
 		int id=args.getId();
-		for (int i = 0; i < size; i*=2) {
+		for (int i = 1; i < size; i*=2) {
 			try {
 				args.getSem()[id].acquire();
 			} catch (InterruptedException e) {

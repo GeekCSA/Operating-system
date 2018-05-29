@@ -1,5 +1,3 @@
-package myos;
-
 import java.util.concurrent.Semaphore;
 
 public class Args {

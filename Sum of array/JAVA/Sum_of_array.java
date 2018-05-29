@@ -1,5 +1,3 @@
-package myos;
-
 import java.util.Arrays;
 import java.util.concurrent.Semaphore;
 
@@ -22,11 +20,12 @@ public class Sum_of_array {
 		Thread [] threads =new Thread[arr.length];
 		
 		for (int i = 0; i < sem.length; i++) {
-			sem[i]=new Semaphore((i == sem.length)?1:0);
+			sem[i]=new Semaphore((i == sem.length - 1)?1:0);
 		}
 		for (int i = 0; i < sem.length; i++) {
 			args[i]=new Args(i,sem,arr);
 			threads[i] = new Thread(new MyRunnableTask(args[i]));
+			threads[i].start();
 		}
 		for (int i = 0; i < threads.length; i++) {
 			try {
