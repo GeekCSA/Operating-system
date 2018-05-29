@@ -19,7 +19,7 @@ void* run(void* args)
 	for(int i=1;i<=k;i*=2)
 	{
 		sem_wait(&myargs->sem[myid]);
-		if(myid - i > 0)
+		if(myid - i >= 0)
 			myargs->arr[myid] += myargs->arr[myid - i];
 		if(myid == 0)
 			sem_post(&myargs->sem[k-1]);
